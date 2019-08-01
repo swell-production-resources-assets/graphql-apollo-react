@@ -82,8 +82,8 @@ const LinkList = () => {
             if (!subscriptionData.data) return prev;
             const newLink = subscriptionData.data.newLink;
             // The next two lines prevent re-rendering if we already have the new Link showing
-            // const exists = prev.feed.links.find(({ id }) => id === newLink.id);
-            // if (exists) return prev;
+            const exists = prev.feed.links.find(({ id }) => id === newLink.id);
+            if (exists) return prev;
             return Object.assign({}, { // tutorial had "prev" as 2nd argument, but unnecessary
               feed: {
                 links: [...prev.feed.links, newLink],

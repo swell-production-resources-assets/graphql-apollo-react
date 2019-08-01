@@ -34,9 +34,9 @@ const App = () => {
         {({ loading, data }) => {
           if (loading) return <p>Waiting for new data</p>;
           return (
-            <>
+            <p>
               New link posted: <Link key={data.newLink.id} link={data.newLink} />
-            </>
+            </p>
           );
         }}
       </Subscription>

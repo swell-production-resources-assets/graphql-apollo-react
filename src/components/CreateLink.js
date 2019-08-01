@@ -51,11 +51,16 @@ const CreateLink = () => {
       </div>
       <Mutation mutation={POST_MUTATION} variables={{ description, url }}>
         {(postMutation) => (
-          <button onClick={postMutation}>Submit</button>
+          <button onClick={(e) => {
+            setUrl('');
+            setDescription('');
+            return postMutation(e);
+          }}>Submit</button>
         )}
       </Mutation>
     </>
   )
 }
+
 
 export default CreateLink;
